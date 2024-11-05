@@ -1,58 +1,119 @@
+// import React from "react";
+// import { MdDashboard } from "react-icons/md";
+// import "./account.css";
+// import { IoMdLogOut } from "react-icons/io";
+// import { UserData } from "../../context/UserContext";
+// import toast from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
+
+// const Account = ({user}) => {
+//     const { setIsAuth, setUser } = UserData();
+
+//     const navigate = useNavigate();
+
+//     const logoutHandler = () => {
+//         localStorage.clear();
+//         setUser([]);
+//         setIsAuth(false);
+//         toast.success("Logged Out");
+//         navigate("/login");
+//     };
+//   return (
+//     <div>
+//         {user && (
+//         <div className="profile">
+//           <h2>My Profile</h2>
+//           <div className="profile-info">
+//             <p>
+//               <strong>Name - {user.name}</strong>
+//             </p>
+
+//             <p>
+//               <strong>Email - {user.email}</strong>
+//             </p>
+//             <button
+//               onClick={() => navigate(`/dashboard`)}
+//               className="common-btn"
+//             >
+//             <MdDashboard />
+//               Dashboard
+//             </button>
+//             </div>
+
+//             <br />
+
+//             <button
+//               onClick={logoutHandler}
+//               className="common-btn"
+//               style={{ background: "red" }}
+//             >
+//               <IoMdLogOut />
+//               Logout
+//             </button>
+//         </div>
+//         )}
+           
+//     </div>
+//   );
+// };
+
+// export default Account;
+
 import React from "react";
 import { MdDashboard } from "react-icons/md";
 import "./account.css";
-// import { IoMdLogOut } from "react-icons/io";
-// import { UserData } from "../../context/Use  rContext";
-// import toast from "react-hot-toast";
+import { IoMdLogOut } from "react-icons/io";
+import { UserData } from "../../context/UserContext";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const Account = ({user}) => {
-    const { setIsAuth, setUser } = UserData();
+const Account = ({ user }) => {
+  const { setIsAuth, setUser } = UserData();
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const logoutHandler = () => {
+    localStorage.clear();
+    setUser([]);
+    setIsAuth(false);
+    toast.success("Logged Out");
+    navigate("/login");
+  };
 
-    const logoutHandler = () => {
-        localStorage.clear();
-        setUser([]);
-        setIsAuth(false);
-        toast.success("Logged Out");
-        navigate("/login");
-    };
+  const dashboardHandler = () => {
+    navigate("/dashboard"); // Navigates to the Dashboard page
+  };
+
   return (
     <div>
-        {user && (
+      {user && (
         <div className="profile">
           <h2>My Profile</h2>
           <div className="profile-info">
             <p>
               <strong>Name - {user.name}</strong>
             </p>
-
             <p>
               <strong>Email - {user.email}</strong>
             </p>
             <button
-              onClick={() => navigate(`/${user._id}/dashboard`)}
+              onClick={dashboardHandler} // Triggering the navigation to dashboard
               className="common-btn"
             >
-            <MdDashboard />
+              <MdDashboard />
               Dashboard
             </button>
-            </div>
-
-            <br />
-
-            <button
-              onClick={logoutHandler}
-              className="common-btn"
-              style={{ background: "red" }}
-            >
-              <IoMdLogOut />
-              Logout
-            </button>
+          </div>
+          <br />
+          <button
+            onClick={logoutHandler}
+            className="common-btn"
+            style={{ background: "red" }}
+          >
+            <IoMdLogOut />
+            Logout
+          </button>
         </div>
-        )}
-           
+      )}
     </div>
   );
 };

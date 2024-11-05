@@ -88,7 +88,7 @@ export const loginUser = TryCatch(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  console.log(user);
+  // console.log(user);
   if (!user)
     return res.status(400).json({
       message: "No User with this email",
@@ -116,5 +116,5 @@ export const loginUser = TryCatch(async (req, res) => {
 //myprofile
 export const myProfile = TryCatch(async (req, res) => {
     const user = await User.findById(req.user._id);
-    res.json({ user });
+    res.json({ user});
 });

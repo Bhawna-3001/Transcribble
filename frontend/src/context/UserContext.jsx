@@ -7,25 +7,25 @@ const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState([]);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  async function loginUser(email, password, navigate, fetchMyCourse) {
+  async function loginUser(email, password, navigate) {
     setBtnLoading(true);
     try {
       const { data } = await axios.post(`${server}/api/user/login`, {
         email,
         password,
       });
-
+      console.log("hi");
       toast.success(data.message);
       localStorage.setItem("token", data.token);
+      console.log(localStorage.getItem("token"));
       setUser(data.user);
       setIsAuth(true);
       setBtnLoading(false);
-      navigate("/");
-      fetchMyCourse();
+      navigate("/account");
     } catch (error) {
       setBtnLoading(false);
       setIsAuth(false);

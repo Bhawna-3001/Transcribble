@@ -1,16 +1,32 @@
 import multer from "multer";
 import { v4 as uuid } from "uuid";
 
+// const storage = multer.diskStorage({
+//   destination(req, file, cb) {
+//     cb(null, "uploads");
+//   },
+//   filename(req, file, cb) {
+//     const id = uuid();
+
+//     const extName = file.originalname.split(".").pop();
+
+//     const fileName = `${id}.${extName}`;
+
+//     cb(null, fileName);
+//   },
+// });
+
 const storage = multer.diskStorage({
-  destination(req, file, cb) {
+  destination(req, cb) {
     cb(null, "uploads");
   },
-  filename(req, file, cb) {
+  filename(req, cb) {
     const id = uuid();
 
-    const extName = file.originalname.split(".").pop();
+    // const extName = file.originalname.split(".").pop();
 
-    const fileName = `${id}.${extName}`;
+    // const fileName = `${id}.${extName}`;
+    const fileName = `${id}`;
 
     cb(null, fileName);
   },
