@@ -1,27 +1,14 @@
 import { useState, useEffect } from "react";
-
-// react-router components
 import { useLocation, Link } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// @material-ui core components
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
 import MDBox from "../../../components/MDBox";
 import MDInput from "../../../components/MDInput";
-
-// Material Dashboard 2 React example components
-import Breadcrumbs from "../../../examples/Breadcrumbs";
 import NotificationItem from "../../../examples/Items/NotificationItem";
 
-// Custom styles for DashboardNavbar
 import {
   navbar,
   navbarContainer,
@@ -30,11 +17,9 @@ import {
   navbarMobileMenu,
 } from "../../../examples/Navbars/DashboardNavbar/styles";
 
-// Material Dashboard 2 React context
 import {useMaterialUIController,setTransparentNavbar,setMiniSidenav,setOpenConfigurator} from "../../../context/context";
 import { MdAccountCircle } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
-import { IoNotifications } from "react-icons/io5";
 
 function DashboardNavbar({ absolute = false, light = false, isMini = false  }) {
   const [navbarType, setNavbarType] = useState();
@@ -115,13 +100,11 @@ function DashboardNavbar({ absolute = false, light = false, isMini = false  }) {
       <Toolbar 
         sx={{
           ...navbarContainer, // Keep existing styles
-          marginLeft: "300px", // Add left margin of 300px
+          marginLeft: "500px", // Add left margin of 300px
           marginRight: "0", // Set right margin to 0
         }}
       >
-        <MDBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-          <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
-        </MDBox>
+        
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             <MDBox pr={1}>

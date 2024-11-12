@@ -1,20 +1,17 @@
 import Dashboard from "./src/layouts/dashboard/index"
-import Billing from "./src/layouts/billing/Billing";
-import RTL from "./src/layouts/rtl/index";
-import Notifications from "./src/layouts/notifications/index";
-import Profile from "./src/layouts/profile/index";
-import SignIn from "./src/layouts/authentication/sign-in/index";
-import SignUp from "./src/layouts/authentication/sign-up/index";
 import { MdDashboard } from "react-icons/md";
 import { CgTranscript } from "react-icons/cg";
 import { MdOutlineTranslate } from "react-icons/md";
 import { MdSummarize } from "react-icons/md";
 import { MdQuiz } from "react-icons/md";
-import { MdAccountCircle } from "react-icons/md";
 import { LuLogOut } from "react-icons/lu";
-
-// @mui icons
-import Icon from "@mui/material/Icon";
+import { BsTranslate } from "react-icons/bs";
+import Transcript from "./src/layouts/transcript/Transcript.jsx";
+import Translate from "./src/layouts/translate/Translate.jsx";
+import Sign_Language from "./src/layouts/sign_language/Sign_Language.jsx";
+import Summary from "./src/layouts/summary/Summary.jsx";
+import MCQGenerator from "./src/layouts/quiz_generation/MCQGenerator.jsx";
+import Account from "../Account/Account.jsx";
 
 const routes = [
   {
@@ -28,50 +25,50 @@ const routes = [
   {
     type: "collapse",
     name: "Transcript",
-    key: "billing",
+    key: "transcript",
     icon: <CgTranscript fontSize="small">receipt_long</CgTranscript>,
-    route: "/billing",
-    component: <Billing />,
+    route: "/generate_notes",
+    component: <Transcript />,
   },
   {
     type: "collapse",
     name: "Sign Language Translate",
     key: "rtl",
     icon: <MdOutlineTranslate fontSize="small">translate</MdOutlineTranslate>,
-    route: "/rtl",
-    component: <RTL />,
+    route: "http://localhost:8000",
+    component: <Sign_Language />,
   },
   {
     type: "collapse",
     name: "Summarize",
-    key: "notifications",
+    key: "summary",
     icon: <MdSummarize fontSize="small">summarize</MdSummarize>,
-    route: "/notifications",
-    component: <Notifications />,
+    route: "/summary",
+    component: <Summary />,
   },
   {
     type: "collapse",
     name: "Generate Quiz",
-    key: "sign-up",
+    key: "MCQGenerator",
     icon: <MdQuiz fontSize="small">quiz</MdQuiz>,
-    route: "/authentication/sign-up",
-    component: <SignUp />,
+    route: "/generate-mcqs",
+    component: <MCQGenerator />,
   },
   {
     type: "collapse",
-    name: "Profile",
-    key: "profile",
-    icon: <MdAccountCircle fontSize="small">person</MdAccountCircle>,
-    route: "/profile",
-    component: <Profile />,
+    name: "Translate",
+    key: "translate",
+    icon: <BsTranslate fontSize="small">person</BsTranslate>,
+    route: "/translate",
+    component: <Translate />,
   },
   {
     type: "collapse",
     name: "Logout",
-    key: "sign-in",
+    key: "Account",
     icon: <LuLogOut fontSize="small">login</LuLogOut>,
-    route: "/authentication/sign-in",
-    component: <SignIn />,
+    route: "/account",
+    component: <Account />,
   },
 ];
 

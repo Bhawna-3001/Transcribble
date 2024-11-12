@@ -39,15 +39,24 @@ const borders = {
     5: pxToRem(5),
   },
 
+  // borderRadius: {
+  //   xs: pxToRem(1.6),
+  //   sm: pxToRem(2),
+  //   md: pxToRem(6),
+  //   lg: pxToRem(8),
+  //   xl: pxToRem(12),
+  //   xxl: pxToRem(16),
+  //   section: pxToRem(160),
+  // },
   borderRadius: {
-    xs: pxToRem(1.6),
-    sm: pxToRem(2),
-    md: pxToRem(6),
-    lg: pxToRem(8),
-    xl: pxToRem(12),
-    xxl: pxToRem(16),
-    section: pxToRem(160),
-  },
+      xs: '4px',
+      sm: '8px',
+      md: '12px',
+      lg: '16px',
+      xl: '24px',
+      xxl: '32px',
+      section: '48px',
+    },
 };
 
 export default borders;

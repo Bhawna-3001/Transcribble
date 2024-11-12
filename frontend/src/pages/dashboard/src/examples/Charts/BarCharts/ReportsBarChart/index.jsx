@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
-
-// @mui material components
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import TranscriptionImage from "./transcript.png";
-
-// Material Dashboard 2 React components
 import MDBox from "../../../../components/MDBox";
 import MDTypography from "../../../../components/MDTypography";
+import { Link } from "react-router-dom";
 
 function ReportsBarChart({ color = "info", title, description="" }) {
   return (
@@ -16,7 +13,7 @@ function ReportsBarChart({ color = "info", title, description="" }) {
         <MDBox
           variant="gradient"
           bgColor={color}
-          borderRadius="lg"
+          borderRadius="inherit"
           coloredShadow={color}
           py={2}
           pr={0.5}
@@ -33,9 +30,11 @@ function ReportsBarChart({ color = "info", title, description="" }) {
           />
         </MDBox>
         <MDBox pt={3} pb={1} px={1}>
+        <Link to="/generate_notes" style={{ textDecoration: "none" }}>
           <MDTypography variant="h6" textTransform="capitalize">
             {title}
           </MDTypography>
+        </Link>
           <MDTypography component="div" variant="button" color="text" fontWeight="light">
             {description}
           </MDTypography>
@@ -46,13 +45,6 @@ function ReportsBarChart({ color = "info", title, description="" }) {
   );
 }
 
-// // Setting default values for the props of ReportsBarChart
-// ReportsBarChart.defaultProps = {
-//   color: "info",
-//   description: "",
-// };
-
-// Typechecking props for the ReportsBarChart
 ReportsBarChart.propTypes = {
   color: PropTypes.oneOf([
     "primary",
@@ -66,7 +58,6 @@ ReportsBarChart.propTypes = {
   ]),
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  // date: PropTypes.string.isRequired,
 };
 
 export default ReportsBarChart;

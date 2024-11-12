@@ -1,30 +1,16 @@
 import { useEffect } from "react";
-
-// react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
-
-// @mui material components
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
 import MDBox from "../../components/MDBox";
 import MDTypography from "../../components/MDTypography";
-// import MDButton from "components/MDButton";
-
-// Material Dashboard 2 React example components
 import SidenavCollapse from "./SidenavCollapse";
-
-// Custom styles for the Sidenav
 import SidenavRoot from "../../examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "../../examples/Sidenav/styles/sidenav";
 
-// Material Dashboard 2 React context
 import {
   useMaterialUIController,
   setMiniSidenav,
@@ -63,7 +49,6 @@ function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
     return () => window.removeEventListener("resize", handleMiniSidenav);
   }, [dispatch, location]);
 
-  // Render all the routes from the routes.js (All the visible items on the Sidenav)
   const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route }) => {
     let returnValue;
 
@@ -141,7 +126,7 @@ function Sidenav({ color = "info", brand = "", brandName, routes, ...rest }) {
           </MDTypography>
         </MDBox>
         <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
+          
           <MDBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
